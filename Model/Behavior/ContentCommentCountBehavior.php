@@ -49,10 +49,15 @@ class ContentCommentCountBehavior extends ModelBehavior {
 		}
 
 		// コンテンツコメント件数をセット
-		$contentKeys = array();
-		foreach ($results as $key => &$target) {
-			$contentKeys[] = $target[$model->alias]['key'];
-			$target['ContentCommentCnt']['content_key'] = $target[$model->alias]['key'];
+		$contents = array();
+		foreach ($results as $content) {
+			$contentKey = $content[$model->alias]['key'];
+
+			$content['ContentCommentCnt'] = array(
+				'content_key' => $contentKey,
+				'cnt' => 0
+			);
+			$contents[$contentKey] = $content;
 		}
 
 		$ContentComment = ClassRegistry::init('ContentComments.ContentComment');
@@ -66,19 +71,16 @@ class ContentCommentCountBehavior extends ModelBehavior {
 			'conditions' => array(
 				'plugin_key' => Current::read('Plugin.key'),
 				'status' => ContentComment::STATUS_PUBLISHED,
+				'content_key' => array_keys($contents)
 			),
-			'group' => array('block_key', 'plugin_key', 'content_key'),
+			'group' => array('content_key'),
 		));
 
-		foreach ($results as $key => &$target) {
-			$target['ContentCommentCnt']['cnt'] = 0;
-			foreach ($contentCommentCnts as $contentCommentCnt) {
-				if ($target['ContentCommentCnt']['content_key'] == $contentCommentCnt['ContentComment']['content_key']) {
-					$target['ContentCommentCnt']['cnt'] = $contentCommentCnt['ContentComment']['cnt'];
-					break;
-				}
-			}
+		foreach ($contentCommentCnts as $contentCommentCnt) {
+			$contentKey = $contentCommentCnt['ContentComment']['content_key'];
+			$contents[$contentKey]['ContentCommentCnt']['cnt'] = $contentCommentCnt['ContentComment']['cnt'];
 		}
+		$results = array_values($contents);
 
 		return $results;
 	}
