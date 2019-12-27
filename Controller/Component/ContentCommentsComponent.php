@@ -270,7 +270,7 @@ class ContentCommentsComponent extends Component {
 		$data['ContentComment'] = $this->_controller->request->data('ContentComment');
 		$data['ContentComment']['block_key'] = Current::read('Block.key');
 		$data['_mail'] = $this->_controller->request->data('_mail');
-		$data['_mail']['url'] = $this->_controller->request->referer();
+		$data['_mail']['url'] = $this->_controller->request->referer(true);
 		if ($this->_controller->action == 'approve') {
 			$data['_mail']['is_comment_approve_action'] = 1;
 		} else {

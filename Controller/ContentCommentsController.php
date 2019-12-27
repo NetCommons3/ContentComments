@@ -172,7 +172,7 @@ class ContentCommentsController extends ContentCommentsAppController {
 		}
 
 		// 一覧へ
-		$this->redirect($this->request->referer());
+		$this->redirect($this->request->referer(true));
 	}
 }
 
