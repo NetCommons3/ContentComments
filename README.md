@@ -1,12 +1,10 @@
-# ContentComments
-ContentComments for NetCommons3
+ContentComments
+==============
 
-[![Build Status](https://api.travis-ci.org/NetCommons3/ContentComments.svg?branch=master)](https://travis-ci.org/NetCommons3/ContentComments)
-[![Coverage Status](https://img.shields.io/coveralls/NetCommons3/ContentComments.svg)](https://coveralls.io/r/NetCommons3/ContentComments?branch=master)
+[![Tests Status](https://github.com/NetCommons3/ContentComments/actions/workflows/tests.yml/badge.svg?branch=master)](https://github.com/NetCommons3/ContentComments/actions/workflows/tests.yml)
+[![Coverage Status](https://coveralls.io/repos/NetCommons3/ContentComments/badge.svg?branch=master)](https://coveralls.io/r/NetCommons3/ContentComments?branch=master)
+[![Stable Version](https://img.shields.io/packagist/v/netcommons/content-comments.svg?label=stable)](https://packagist.org/packages/netcommons/content-comments)
 
-| dependencies | status |
-| ------------ | ------ |
-| composer.json | [![Dependency Status](https://www.versioneye.com/user/projects/5539e4a10b24229e14000002/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5539e4a10b24229e14000002) |
 
 ### [phpdoc](https://netcommons3.github.io/NetCommons3Docs/phpdoc/ContentComments/)
 
