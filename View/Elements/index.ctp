@@ -82,6 +82,7 @@ $pluginKey = $this->request->params['plugin'];
 
 					<?php /* 編集許可あり or (自分で投稿したコメント & ログイン済みなら、編集・削除可能) */ ?>
 					<?php if (Current::permission('content_comment_editable') || (
+							Current::permission('content_comment_creatable') &&
 							$contentComment['ContentComment']['created_user'] == (int)Current::read('User.id') &&
 							Current::read('User'))): ?>
 
