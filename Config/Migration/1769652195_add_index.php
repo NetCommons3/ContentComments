@@ -1,8 +1,12 @@
 <?php
 /**
+ * AddIndex
+ */
+
+/**
  * インデックス追加のみ。
  *
- * @package Researchmap\RmNetCommons\Config\Migration
+ * @package NetCommons\ContentComments\Config\Migration
  */
 class AddIndex extends CakeMigration {
 
@@ -23,7 +27,7 @@ class AddIndex extends CakeMigration {
 			'create_field' => array(
 				'content_comments' => array(
 					'indexes' => array(
-						'idx1_p_content_comments' => array('column' => array('block_key', 'plugin_key','content_key','status'), 'unique' => 0),
+						'idx1_p_content_comments' => array('column' => array('block_key', 'plugin_key', 'content_key', 'status'), 'unique' => 0),
 					),
 				),
 			),
