@@ -62,7 +62,8 @@ class ContentCommentsSchema extends CakeSchema {
 		'modified' => array('type' => 'datetime', 'null' => true, 'default' => null, 'comment' => '更新日時'),
 		'indexes' => array(
 			'PRIMARY' => array('column' => 'id', 'unique' => 1),
-			'block_key' => array('column' => array('block_key', 'plugin_key', 'content_key', 'created'), 'unique' => 0, 'length' => array('block_key' => '191', 'plugin_key' => '191', 'content_key' => '191'))
+			'block_key' => array('column' => array('block_key', 'plugin_key', 'content_key', 'created'), 'unique' => 0, 'length' => array('block_key' => '191', 'plugin_key' => '191', 'content_key' => '191')),
+			'idx1_p_content_comments' => array('column' => array('block_key', 'plugin_key', 'content_key', 'status'), 'unique' => 0)
 		),
 		'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'InnoDB')
 	);
